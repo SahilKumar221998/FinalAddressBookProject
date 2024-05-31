@@ -27,10 +27,10 @@ namespace AddressBook
         string message="";
         Regex regex;
         List<ContactPers> arrayList=new List<ContactPers>();
-        
-       
-        //Method To update a Person
-        public void editPerson()
+
+
+        //Method to remove a person
+        public void removePerson()
         {
             Console.WriteLine("Enter the Name ");
             string name = Console.ReadLine();
@@ -38,7 +38,8 @@ namespace AddressBook
             {
                 if (person.FirstName.Equals(name))
                 {
-                    addPerson();
+                    arrayList.Remove(person);
+                    Console.WriteLine("Removed " + person.FirstName);
                     return;
                 }
             }
@@ -47,7 +48,6 @@ namespace AddressBook
                 throw new AddressBookInvalidUserException("!!!!!INVALID USER!!!!!");
             }
             catch (Exception e) { Console.WriteLine(e.ToString); }
-
         }
 
 
